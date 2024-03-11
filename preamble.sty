@@ -1,0 +1,115 @@
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{booktabs} % For better-looking tables
+\usepackage{caption} % For table captions
+\usepackage{siunitx} % For alignment of numbers
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+
+
+%========================================================================
+% theme setter
+\usetheme[progressbar=frametitle]{Madrid}
+% \usetheme[progressbar=frametitle]{metropolis}
+
+
+%========================================================================
+% citing and referencing
+%% APA bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa, backend = biber]{biblatex}
+\bibliography{ref.bib}
+
+
+% Required package
+\usepackage{tikz}
+
+%========================================================================
+% Define Optocase Group colors
+\definecolor{optocaseblue}{RGB}{0,102,204}
+\definecolor{optocasegray}{RGB}{128,128,128}
+
+% Set colors
+\setbeamercolor{structure}{fg=optocaseblue}
+\setbeamercolor{title}{fg=optocaseblue}
+\setbeamercolor{author}{fg=optocasegray}
+\setbeamercolor{date}{fg=optocasegray}
+
+%========================================================================
+% Customize title page
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \vspace{1cm}
+  \begin{center}
+    \usebeamerfont{title}\inserttitle\par
+    \vspace{0.3cm}
+    \usebeamerfont{subtitle}\insertsubtitle\par
+    \vspace{1cm}
+    \usebeamerfont{author}\insertauthor\par
+    \vspace{0.2cm}
+    \usebeamerfont{institute}\insertinstitute\par
+    \vspace{0.2cm}
+    \usebeamerfont{date}\insertdate\par
+  \end{center}
+}
+%========================================================================
+% Customize frame title
+% \setbeamertemplate{frametitle}
+% {
+%   \vspace{0.5cm}
+%   \begin{center}
+%     \textbf{\insertframetitle}
+%   \end{center}
+% }
+
+%========================================================================
+% % Add Optocase Group logo to every frame
+% \logo{\includegraphics[width=1.5cm]{images/optocase_logo.png}}
+
+%========================================================================
+% Embed logo in background
+\setbeamertemplate{background}{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[opacity=0.015] at (current page.center) {\includegraphics[width=8cm]{Figures/optocase_logo.png}};
+    \end{tikzpicture}
+}
+
+
+%=================================================================
+
+% for converting to a page slides and handouts
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{6 on 1}[border shrink=1mm]
+% \pgfpageslogicalpageoptions{1}{border code=\pgfsetlinewidth{3pt}\pgfusepath{stroke}}
+% \pgfpageslogicalpageoptions{2}{border code=\pgfsetlinewidth{3pt}\pgfusepath{stroke}}
+% \pgfpageslogicalpageoptions{3}{border code=\pgfsetlinewidth{3pt}\pgfusepath{stroke}}
+% \pgfpageslogicalpageoptions{4}{border code=\pgfsetlinewidth{3pt}\pgfusepath{stroke}}
+% \pgfpageslogicalpageoptions{5}{border code=\pgfsetlinewidth{3pt}\pgfusepath{stroke}}
+% \pgfpageslogicalpageoptions{6}{border code=\pgfsetlinewidth{3pt}\pgfusepath{stroke}}
+
+
+%=================================================================
+% for notes that can be uused in the presentation in pyumpress
+% \usepackage{pgfpages}
+% \setbeameroption{show notes}
+% \setbeameroption{show notes on second screen=right}
+
+
+%=================================================================
+% Removes navigation symbols
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{navigation symbols}{}
+
+
+%=================================================================
+% Define acronyms
+\usepackage{glossaries}
+\input{acro} % include the acronyms from acro.tex
+\renewcommand*{\glstextformat}[1]{\textbf{#1}} % Redefine appearance of acronyms as keywords
+\makeglossaries % Generate the glossary
